@@ -30,12 +30,8 @@ class MainActivity : Activity() {
     private val favoriteViews = mutableListOf<TextView>()
     private val favoritePackages = arrayOfNulls<String>(6)
 
+    // Corrección: Definición limpia y única del BroadcastReceiver para el reloj
     private val timeTickReceiver = object : BroadcastReceiver() {
-        onReceive(context: Context?, intent: Intent?) {
-            if (intent?.action == Intent.ACTION_TIME_TICK) {
-                updateClock()
-            }
-        }
         override fun onReceive(context: Context, intent: Intent) {
             if (intent.action == Intent.ACTION_TIME_TICK) {
                 updateClock()
@@ -121,13 +117,11 @@ class MainActivity : Activity() {
                 if (pkg != null) {
                     launchPackage(pkg)
                 } else {
-                    // Seleccionar de la lista al hacer clic en vacío
                     etSearch.requestFocus()
                 }
             }
 
             favoriteViews[i].setOnLongClickListener {
-                // Asignar primera app del buscador actual o limpiar
                 val currentResults = AppRepository.search(etSearch.text.toString())
                 if (currentResults.isNotEmpty()) {
                     setFavorite(i, currentResults[0].packageName)
@@ -152,7 +146,6 @@ class MainActivity : Activity() {
         if (intent != null) {
             startActivity(intent)
         } else {
-            // Si la app fue desinstalada, limpiar favorito
             for (i in favoritePackages.indices) {
                 if (favoritePackages[i] == packageName) {
                     setFavorite(i, null)
@@ -213,7 +206,6 @@ class MainActivity : Activity() {
     }
 
     override fun onBackPressed() {
-        // Un launcher no debe salir de la app al pulsar atrás
         etSearch.setText("")
         etSearch.clearFocus()
     }
