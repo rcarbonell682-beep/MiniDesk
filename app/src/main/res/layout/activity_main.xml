@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:padding="24dp"
+    android:gravity="top">
+
+    <!-- Reloj Minimalista Superior -->
+    <TextView
+        android:id="@+id/tv_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textColor="@android:color/white"
+        android:textSize="48sp"
+        android:textStyle="light"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Favoritos Anclados (Hasta 6 slots) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp">
+
+        <TextView
+            android:id="@+id/fav_0"
+            style="@style/FavoriteItemStyle" />
+        <TextView
+            android:id="@+id/fav_1"
+            style="@style/FavoriteItemStyle" />
+        <TextView
+            android:id="@+id/fav_2"
+            style="@style/FavoriteItemStyle" />
+        <TextView
+            android:id="@+id/fav_3"
+            style="@style/FavoriteItemStyle" />
+        <TextView
+            android:id="@+id/fav_4"
+            style="@style/FavoriteItemStyle" />
+        <TextView
+            android:id="@+id/fav_5"
+            style="@style/FavoriteItemStyle" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#222222"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Buscador / Cajón de Aplicaciones -->
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="buscar app..."
+        android:textColor="@android:color/white"
+        android:textColorHint="#666666"
+        android:background="@android:color/transparent"
+        android:textSize="20sp"
+        android:imeOptions="actionSearch"
+        android:inputType="textNoSuggestions"
+        android:layout_marginBottom="16dp" />
+
+    <ListView
+        android:id="@+id/list_apps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none" />
+
+</LinearLayout>
