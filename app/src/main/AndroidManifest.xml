@@ -10,7 +10,6 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
         android:label="Mini Desk"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiniDesk">
